@@ -1,0 +1,96 @@
+* Smth Interesting
+** Church "\lambda-calculus"
+** Gödel "recursive functions"
+** Turing "Turing Machine"
+
+* 1098
+** Russel "Mathematics logic base on theory of types"
+** Curry "paradox"
+** Hensen "Simply-typed \lambda-calculus
+
+* Propositions as Types
+** Proof -> Programs
+
+* Exercises
+** Equivalence
+1) b
+2) c
+3) b
+** Combinators
+1) T
+2) F
+3) T
+4) T
+5) Fn
+** ß - NF?
+1) T
+2) F
+3) T
+
+** Eval
+1) (λabc.cba)zz(λwv.w) -> (λwv.w)zz -> z
+2) (λx.λy.xyy)(λa . a)b -> (λa.a)bb -> bb
+3) (λy.y)(λx.xx)(λz.zq) -> (λz.zq)(λz.zq) -> (λz.zq)q -> qq
+4) yy
+5) (λx.λy.xyy)(λy.y)y -> (λy.y)yy -> yy
+6) (λa.aa)(λb.ba)c -> (λb.ba)(λb.ba)c -> (λb.ba)ac -> aac
+7) (λxyz.xz(yz))(λx.z)(λx.a) -> (λxym.xm(ym))(λx.z)(λx.a) ->
+   (λm.(λx.z)m((λx.a)m)) ->
+   (λm.za)
+
+* Additional task
+** Parentheses
+   1) λx. x z λy. x y
+      (λx. ((x z) (λy. (x y))))
+
+   2) (λx. x z) λy. w λw. w y z x
+      ((λx. (x z)) (λy. (w (λw. ((((w y) z) x)))))
+
+   3) λx. x y λx. y x
+      (λx. ((x y) (λx. (y x))))
+
+** Free variables
+   Identify all the free variables in the following expressions.
+   1) λx. x z λy. x y
+      (λx. ((x _z_) (λy. (_x_ y))))
+
+   2) (λx. x z) λy. w λw. w y z x
+      (λx. (x _z_)) (λy. ((_w_) (λw. ((((w y) _z_) _x_)))))
+
+   3) λx. x y λx. y x
+      λx. ((x _y_) (λx. (_y_ x)))
+** β-reduction
+   Reduce the following expressions as much as possible.
+   1. (λx. x λy. λz. z y x)(y z)
+      (λx. (x λy. λz. ((z y) x)))(y z)
+      (λx. ((y z) λy. λz1. ((z1 y) (y z))))
+      yz (λy1. λz1. z1 y1 yz)
+
+   2. (λn. λf. λx. f(n f x))(λx. λf. x x x x f)
+      λf1. λx1. f1(λx. λf. (x x x x f) f1 x1)
+      λf1. λx1. f1 (f1 f1 f1 f1 x1)
+      λfx. f f f f f x
+
+   3. (λx. x(λx. λy. y)(λy. λx. y))(λx. λy. y)
+      (λx. λy. y)(λx. λy. y)(λy. λx. y)
+      λy. λx. y
+
+   // Error in the repo. missed one y1
+   4. (λx. λy. xy)(λz. (λc. y) z)
+      λy1. ((λz. (λc. y) z) y1)
+      λy1. ((λc. y) y1)
+      λy1. y
+
+   5. (λx. λy. x y)(λz. (λc. c y) z)
+
+   6. (λx. x q)(λy. y y y)
+   7. (λc. c(λx. (λx. λy. y))(λx. λy. x))(λq. q)
+   8. (λz. z)(λy. y y)(λx. x a)
+   9. (λz. z)(λz. z z)(λz. z y)
+   10. (λx. λy. x y y)(λa. a) b
+   11. (λx. λy. x y y)(λy. y) y
+   12. (λx. x x)(λy. y x) z
+   13. (λx. (λy. (x y)) y) z
+   14. ((λx. x x)(λy. y))(λy. y)
+   15. (((λx. λy. (x y))(λy. y)) w)
+   16. (λx. y)((λy. y y y)(λx. x x x))
