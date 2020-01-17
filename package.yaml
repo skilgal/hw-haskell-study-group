@@ -1,10 +1,10 @@
 name:                haskell-study-group
 version:             0.1.0.0
-github:              "githubuser/haskell-study-group"
+github:              "skilgal/haskell-study-group"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2019 Author name here"
+author:              "Dmytro Altsyvanovych"
+maintainer:          "dmytro.altsyvanovych@gmail.com"
+copyright:           ""
 
 extra-source-files:
 - README.md
@@ -35,6 +35,7 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - haskell-study-group
+    - QuickCheck
 
 tests:
   haskell-study-group-test:
@@ -46,3 +47,4 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - haskell-study-group
+    - QuickCheck
